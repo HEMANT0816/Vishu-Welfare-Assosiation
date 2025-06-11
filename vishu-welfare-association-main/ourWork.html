@@ -20,6 +20,22 @@
     <link rel="stylesheet" href="assets/css/main.css">
 
     <link rel="shortcut icon" href="assets/images/VISHU+LOGO.png" type="image/x-icon">
+    <style>
+        
+        @keyframes drawLine {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: var(--line-length);
+            }
+        }
+
+        *{
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 
 <body>
@@ -145,7 +161,7 @@
     <!-- ==========Header Section Ends Here========== -->
 
     <!-- ===========Header Search=========== -->
-    <div class="header-form">
+    <!-- <div class="header-form">
         <div class="bg-lay">
             <div class="cross">
                 <i class="fas fa-times"></i>
@@ -155,11 +171,11 @@
             <input type="text" placeholder="Input Your Search" name="name">
             <button type="submit">Search</button>
         </form>
-    </div>
+    </div> -->
     <!-- ===========Header Search=========== -->
 
     <!-- ===========Header Cart=========== -->
-    <div class="cart-sidebar-area">
+    <!-- <div class="cart-sidebar-area">
         <div class="top-content">
             <a href="index.html" class="logo">
                 <img src="assets/images/logo/logo.png" alt="logo">
@@ -224,153 +240,128 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- ===========Header Cart=========== -->
 
     <!-- ==========Banner Section Starts Here========== -->
-    <section class="page-header bg_img" data-background="assets/images/banner/page-header.jpg">
+    <!-- <section class="page-header bg_img" data-background="assets/images/banner/page-header.jpg">
         <div class="container">
             <div class="page-header-content">
-                <h1 class="title">contact information</h1>
+                <h1 class="title">About US</h1>
                 <ul class="breadcrumb">
                     <li>
                         <a href="index.html">Home</a>
                     </li>
                     <li>
-                        Contact
+                        About
                     </li>
                 </ul>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- ==========Banner Section Ends Here========== -->
 
+    <!-- herosection -->
 
-    <!-- ==========Contact Section Starts Here========== -->
-    <section class="contact-section padding-top padding-bottom">
-        <div class="container">
-            <div class="contact-form-area">
-                <div class="row flex-row-reverse">
-                    <div class="col-lg-8 mb-5 mb-lg-0">
-                        <h4 class="title">Leave A Message</h4>
-                        <form class="contact-form" id="contact_form_submit">
-                            <div class="form-group">
-                                <input type="text" placeholder="Your Name" id="name" name="name">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" placeholder="Your Email" id="email" name="email">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" placeholder="Phone" id="phone" name="phone">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" placeholder="Subject" id="subject" name="subject">
-                            </div>
-                            <div class="form-group w-100">
-                                <textarea name="message" id="message" placeholder="Your Message"></textarea>
-                            </div>
-                            <div class="form-group w-100 text-center">
-                                <button class="custom-button"><span>Send Message</span></button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="contact-wrapper">
-                            <div class="contact-item">
-                                <div class="contact-thumb">
-                                    <img src="assets/images/contact/01.png" alt="contact">
-                                </div>
-                                <div class="contact-content">
-                                    <h6 class="title">Office Address</h6>
-                                    <p>1201 park street, Fifth Avenue</p>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-thumb">
-                                    <img src="assets/images/contact/02.png" alt="contact">
-                                </div>
-                                <div class="contact-content">
-                                    <h6 class="title">Phone number</h6>
-                                    <p>+22698 745 632,02 982 745</p>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-thumb">
-                                    <img src="assets/images/contact/03.png" alt="contact">
-                                </div>
-                                <div class="contact-content">
-                                    <h6 class="title">Send email </h6>
-                                    <a href="mailto:info@gmail.com">yourmail@gmil.com</a>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-thumb">
-                                    <img src="assets/images/contact/04.png" alt="contact">
-                                </div>
-                                <div class="contact-content">
-                                    <h6 class="title">Our website</h6>
-                                    <a href="#">www.yoursitename@gmil.com</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div id="container" style="
+    height: 100vh;
+    width: 100vw;
+    background-image: url('../vishu-welfare-association-main/assets/images/testing.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+  " onmouseenter="startAnimation()" onmouseleave="resetAnimation()">
+
+        <!-- Triangle -->
+        <div style="
+      width: 0;
+      height: 0;
+      border-left: 0 solid transparent;
+      border-right: 100vw solid transparent;
+      border-top: 100vh solid white;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    "></div>
+
+        <!-- Red line to animate on hover -->
+        <div id="line" style="
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 5px;
+      background-color: rgb(255 153 53);
+      transform-origin: left;
+      width: 0;
+    "></div>
+
+        <!-- Text -->
+        <div style="
+      position: absolute;
+      bottom: 75%;
+      left: 20%;
+      transform: translate(-50%, 50%);
+      font-size: calc(1.5rem + 1vw);
+      font-family: sans-serif;
+      color: black;
+      font-weight: bolder;
+    ">
+            About Our<br>
+            Organization<br>
+            <!-- <span style="font-style: sans-sarif; font-size: 1rem;">
+         Vishu Welfare Association is a community-led organization founded on the belief that every individual has the right to live with dignity. From urban slums in Delhi to tribal hamlets in remote India, our volunteers and teams are on the ground every day—educating, healing, planting, building, and listening.
+We are non-political, secular, and inclusive. Every rupee donated is used with accountability, and every project is built with community feedback at its core. Our journey is one of compassion, resilience, and hope.
+We are proud of our network of volunteers, donors, and partners who continue to walk with us in this mission of transformation.
+
+     </span> -->
         </div>
-    </section>
-    <!-- ==========Contact Section Ends Here========== -->
 
-
-    <!-- ==========Map Section Starts Here========== -->
-    <div class="map-section pos-rel">
-        <div class="maps">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.2275990948147!2d90.38698831543141!3d23.739261895117753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b85c740f17d1%3A0xdd3daab8c90eb11f!2sCodexCoder!5e0!3m2!1sen!2sbd!4v1607313671993!5m2!1sen!2sbd" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-        </div>
-        <!-- <div class="contact-area padding-bottom padding-top pt-lg-0 pb-lg-0">
-            <div class="container">
-                <div class="contact-wrapper">
-                    <div class="contact-item">
-                        <div class="contact-thumb">
-                            <img src="assets/images/contact/01.png" alt="contact">
-                        </div>
-                        <div class="contact-content">
-                            <h6 class="title">Office Address</h6>
-                            <p>1201 park street, Fifth Avenue</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-thumb">
-                            <img src="assets/images/contact/02.png" alt="contact">
-                        </div>
-                        <div class="contact-content">
-                            <h6 class="title">Phone number</h6>
-                            <p>+22698 745 632,02 982 745</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-thumb">
-                            <img src="assets/images/contact/03.png" alt="contact">
-                        </div>
-                        <div class="contact-content">
-                            <h6 class="title">Send email </h6>
-                            <a href="mailto:info@gmail.com">yourmail@gmil.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-thumb">
-                            <img src="assets/images/contact/04.png" alt="contact">
-                        </div>
-                        <div class="contact-content">
-                            <h6 class="title">Our website</h6>
-                            <a href="#">www.yoursitename@gmil.com</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </div>
-    <!-- ==========Map Section Ends Here========== -->
 
+
+    <!-- ==========Main body start here========== -->
+
+    <div style="width: 100vw; display: flex; justify-content: center; margin: 5rem; height: 100rem;">
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 25rem 25rem 25rem 25rem; width: 70%; height: 120vh; color: white;">
+            <!-- first work -->
+            <div style="background-image: url();"></div>
+            <div style="background-color: rgb(255 153 53); padding: 1rem; text-align: center;">
+                <h3 style="color: white;">Education And Livelihood</h3>
+                <br>
+                <p style="font-family: Be Vietnam Pro, sans-serif; font-size: 1.5rem;">We believe that education opens doors and livelihood sustains freedom. At Vishu Foundation, we ensure that individuals—especially children, youth, women, and the economically weaker sections—have the tools they need to learn, grow, and become self-reliant.</p>
+            </div>
+             <!-- second work -->
+            
+            <div style="background-color: #0e2c53; padding: 1rem; text-align: center;">
+                <h3 style="color: white;">Plantation & Environmental Protection</h3>
+                <br>
+                <p style="font-family: Be Vietnam Pro, sans-serif; font-size: 1.5rem;">
+Vishu Foundation believes protecting the environment is a shared responsibility. Through our green initiatives, we aim to build eco-aware communities by encouraging sustainable habits. Our efforts include tree plantations in urban, rural, and deforested areas, clean-up drives to manage waste and reduce plastic use, water conservation through rainwater harvesting, and school programs to teach environmental values from an early age.</p>
+            </div>
+            <div style="background-color: yellow;"></div>
+             <!-- third work -->
+            <div style="background-color: yellow;"></div>
+            <div style="background-color: rgb(255 153 53); padding: 1rem; text-align: center;">
+                <h3 style="color: white;">Healthcare, Public Hygiene & Medical Relief</h3>
+                
+                <p style="font-family: Be Vietnam Pro, sans-serif; font-size: 1.5rem;">Access to basic healthcare and sanitation remains a challenge for many in India. Vishu Foundation is dedicated to bridging this gap by providing essential medical services and spreading awareness in underserved communities. Our initiatives include free medical camps, mobile health units for remote areas, blood donation and vaccination drives, first-aid training, clean water programs through filter distribution and water stations, and public toilet construction along with hygiene awareness campaigns.</p>
+            </div>
+             <!-- fourth work -->
+            
+            <div style="background-color: #0e2c53; padding: 1rem; text-align: center;">
+                <h3 style="color: white;">Food Distribution</h3>
+                <br>
+                <p style="font-family: Be Vietnam Pro, sans-serif; font-size: 1.5rem;">Hunger and malnutrition continue to affect countless individuals, especially in underprivileged communities. Vishu Foundation is committed to combating this issue by ensuring access to nutritious food for those in need. Our food distribution efforts include regular meal drives for the homeless and low-income families, ration kit distribution during emergencies and disasters, partnerships with local kitchens to serve cooked meals, and awareness programs on nutrition and food hygiene to promote long-term well-being.</p>
+            </div>
+            <div style="background-color: yellow;"></div>
+        </div>
+
+    </div>
+
+    <!-- Main body End here -->
+ 
     <!-- ==========Footer Section Starts Here========== -->
     <footer>
         <div class="footer-top">
@@ -426,11 +417,13 @@
                                         <h5 class="title text-uppercase">About LONELY PRO</h5>
                                         <p>
                                             Energistically coordinate highly efficient procesr
-                                            partnerships befor revolutionar growth strategie 
+                                            partnerships befor revolutionar growth strategie
                                             improvement viaing awesome
                                         </p>
                                         <div class="ftb-map">
-                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.227736756104!2d90.38698295091588!3d23.73925698451917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b85c740f17d1%3A0xdd3daab8c90eb11f!2sCodexCoder!5e0!3m2!1sen!2sbd!4v1633410430100!5m2!1sen!2sbd" allowfullscreen=""></iframe>
+                                            <iframe
+                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.227736756104!2d90.38698295091588!3d23.73925698451917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b85c740f17d1%3A0xdd3daab8c90eb11f!2sCodexCoder!5e0!3m2!1sen!2sbd!4v1633410430100!5m2!1sen!2sbd"
+                                                allowfullscreen=""></iframe>
                                         </div>
                                     </div>
                                 </div>
@@ -445,7 +438,8 @@
                                                     </a>
                                                 </div>
                                                 <div class="content">
-                                                    <a href="blog-single.html">Enable Seamin Matera Forin And Our Orthonal Create Vortals.</a>
+                                                    <a href="blog-single.html">Enable Seamin Matera Forin And Our
+                                                        Orthonal Create Vortals.</a>
                                                     <span>July 23, 2021</span>
                                                 </div>
                                             </li>
@@ -456,7 +450,8 @@
                                                     </a>
                                                 </div>
                                                 <div class="content">
-                                                    <a href="blog-single.html">Dynamca Network Otuitive Catays For Plagiarize Mindshare After</a>
+                                                    <a href="blog-single.html">Dynamca Network Otuitive Catays For
+                                                        Plagiarize Mindshare After</a>
                                                     <span>July 23, 2021</span>
                                                 </div>
                                             </li>
@@ -484,13 +479,15 @@
         <div class="footer-bottom">
             <div class="container">
                 <div class="text-center">
-                    <p class="mb-0">&copy; 2021 <a href="index.html">Lonely Pro</a> - Best For Charity HTML Template.</p>
+                    <p class="mb-0">&copy; 2021 <a href="index.html">Lonely Pro</a> - Best For Charity HTML Template.
+                    </p>
                 </div>
             </div>
         </div>
     </footer>
     <!-- ==========Footer Section Ends Here========== -->
-    
+
+
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/modernizr-3.6.0.min.js"></script>
     <script src="assets/js/plugins.js"></script>
@@ -503,7 +500,38 @@
     <script src="assets/js/odometer.min.js"></script>
     <script src="assets/js/nice-select.js"></script>
     <script src="assets/js/slick.min.js"></script>
-    <script src="assets/js/contact.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        function updateLine() {
+            const vw = window.innerWidth;
+            const vh = window.innerHeight;
+            const angleRad = Math.atan(vh / vw);
+            const angleDeg = -angleRad * (180 / Math.PI);
+            const hypotenuse = Math.sqrt(vw * vw + vh * vh);
+            const targetLength = hypotenuse * 0.75;
+
+            const line = document.getElementById('line');
+            line.style.transform = `rotate(${angleDeg}deg)`;
+            line.dataset.targetLength = targetLength + 'px';
+        }
+
+        function startAnimation() {
+            const line = document.getElementById('line');
+            line.style.animation = 'none'; // reset
+            line.offsetHeight; // force reflow
+            line.style.animation = `drawLine 1.5s forwards`;
+            line.style.setProperty('--line-length', line.dataset.targetLength);
+        }
+
+        function resetAnimation() {
+            const line = document.getElementById('line');
+            line.style.animation = 'none';
+            line.style.width = '0';
+        }
+
+        window.addEventListener('load', updateLine);
+        window.addEventListener('resize', updateLine);
+    </script>
 </body>
+
 </html>
