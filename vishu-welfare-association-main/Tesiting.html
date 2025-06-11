@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Triangle Border Animation on Hover</title>
+  <style>
+    @keyframes drawLine {
+      from {
+        width: 0;
+      }
+      to {
+        width: var(--line-length);
+      }
+    }
+  </style>
+</head>
+<body style="margin: 0; padding: 0;">
+
+  <div id="container" style="
+    height: 100vh;
+    width: 100vw;
+    background-image: url('../vishu-welfare-association-main/assets/images/testing.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+  " onmouseenter="startAnimation()" onmouseleave="resetAnimation()">
+
+    <!-- Triangle -->
+    <div style="
+      width: 0;
+      height: 0;
+      border-left: 0 solid transparent;
+      border-right: 100vw solid transparent;
+      border-top: 100vh solid white;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    "></div>
+
+    <!-- Red line to animate on hover -->
+    <div id="line" style="
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 5px;
+      background-color: rgb(255 153 53);
+      transform-origin: left;
+      width: 0;
+    "></div>
+
+    <!-- Text -->
+    <div style="
+      position: absolute;
+      bottom: 75%;
+      left: 20%;
+      transform: translate(-50%, 50%);
+      font-size: calc(1.5rem + 1vw);
+      font-family: sans-serif;
+      color: black;
+      font-weight: bolder;
+    ">
+      About Our<br>
+      Organization
+    </div>
+
+  </div>
+
+  <script>
+    function updateLine() {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const angleRad = Math.atan(vh / vw);
+      const angleDeg = -angleRad * (180 / Math.PI);
+      const hypotenuse = Math.sqrt(vw * vw + vh * vh);
+      const targetLength = hypotenuse * 0.75;
+
+      const line = document.getElementById('line');
+      line.style.transform = `rotate(${angleDeg}deg)`;
+      line.dataset.targetLength = targetLength + 'px';
+    }
+
+    function startAnimation() {
+      const line = document.getElementById('line');
+      line.style.animation = 'none'; // reset
+      line.offsetHeight; // force reflow
+      line.style.animation = `drawLine 1.5s forwards`;
+      line.style.setProperty('--line-length', line.dataset.targetLength);
+    }
+
+    function resetAnimation() {
+      const line = document.getElementById('line');
+      line.style.animation = 'none';
+      line.style.width = '0';
+    }
+
+    window.addEventListener('load', updateLine);
+    window.addEventListener('resize', updateLine);
+  </script>
+
+</body>
+</html>
